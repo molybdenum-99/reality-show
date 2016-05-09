@@ -1,0 +1,19 @@
+{
+  "name": "react-reality-app",
+  "version": "0.0.2",
+  "description": "Reality Web console",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify src/main.jsx -v -t [ babelify --presets [react] ] -o public/js/main.js"
+  },
+  "author": "Sergii Mostovyi",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "watchify": "^3.6.1",
+    "whatwg-fetch": "^0.10.1"
+  }
+}

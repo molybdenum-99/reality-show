@@ -8,6 +8,10 @@ get '/' do
 end
 
 get '/query' do
-  @result = eval(params['query'])
-  erb :index
+  @result = begin
+    { result: eval(params['query']).to_s }
+  rescue =>e
+    { result: e.message, error: e.message }
+  end
+  @result.to_json
 end
