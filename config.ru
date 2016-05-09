@@ -1,2 +1,2 @@
-require './reality_web'
+require './reality_show'
 run Sinatra::Application
