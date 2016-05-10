@@ -1,16 +1,15 @@
 Reality Show
 =========
 
-Reality Show is a server and a web console with Reality library included.
+Reality Show is a server and a web console with Reality library included so you can quickly experiment with Reality.
 
 ## URL
 
-```
 http://reality-show.molybdenum.io
-```
+
 
 ## Usage
-Reality::Methods IS included so you can use shortcuts, e.g.
+Reality::Methods is included so you can use shortcuts, e.g.
 
 ```ruby
 Entity('Canada').area
