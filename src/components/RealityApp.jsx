@@ -36,7 +36,7 @@ var RealityApp = React.createClass({
         <div className="col-sm-3"></div>
         <div className="components col-sm-8">
           <SearchBox onNewSearch={this.handleSearch} ref="searchBox"/>
-          <Loader loaded={this.state.loaded} color="#fff" left="10%" top="180%">
+          <Loader loaded={this.state.loaded} color="#fff" left="40%" top="180%">
             <h3>{this.state.result}</h3>
           </Loader>
         </div>

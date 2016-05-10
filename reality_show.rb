@@ -1,8 +1,9 @@
 require 'sinatra'
 require 'reality'
 
+include Reality::Methods
 Reality.configure(:demo)
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE # If you have problems with local SSL certificate
 
 get '/' do
   erb :index

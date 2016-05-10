@@ -19966,7 +19966,7 @@ var RealityApp = React.createClass({
         React.createElement(SearchBox, { onNewSearch: this.handleSearch, ref: 'searchBox' }),
         React.createElement(
           Loader,
-          { loaded: this.state.loaded, color: '#fff', left: '10%', top: '180%' },
+          { loaded: this.state.loaded, color: '#fff', left: '40%', top: '180%' },
           React.createElement(
             'h3',
             null,
