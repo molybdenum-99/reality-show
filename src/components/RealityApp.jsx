@@ -3,12 +3,14 @@ var React = require('react');
 var HTTP = require('../services/httpserver');
 
 var SearchBox = require('./SearchBox.jsx');
+var Loader = require('react-loader');
 
 var RealityApp = React.createClass({
   getInitialState: function(){
     return(
       {
-        result: ''
+        result: '',
+        loaded: true
       }
     );
   },
@@ -21,20 +23,26 @@ var RealityApp = React.createClass({
     }
   },
   handleSearch: function(search){
+    this.setState({loaded: false});
     HTTP.get('/query?query='+search).then(function(data){
       document.location.hash = search;
-      this.setState({result: data.result});
+      this.setState({result: data.result, loaded: true});
     }.bind(this));
   },
 
   render: function() {
     return (
       <div className="row">
-        <div className="components col-sm-6">
+        <div className="col-sm-3"></div>
+        <div className="components col-sm-8">
           <SearchBox onNewSearch={this.handleSearch} ref="searchBox"/>
-          <h2>{this.state.result}</h2>
+          <Loader loaded={this.state.loaded} color="#fff" left="10%" top="180%">
+            <h3>{this.state.result}</h3>
+          </Loader>
         </div>
+        <div className="col-sm-1"></div>
       </div>
+
     );
   }
 });

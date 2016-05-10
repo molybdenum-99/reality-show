@@ -47,7 +47,7 @@ var SearchBox = React.createClass({
             <form onSubmit={this.handleSubmit} >
               <div className="col-xs-9">
                 <div style={searchBorder}>
-                  <input style={inputStyle} ref="searchInput" placeholder="Explore"/>
+                  <input style={inputStyle} ref="searchInput" placeholder="e.g. Reality::Entity.new('Canada').area"/>
                 </div>
               </div>
               <div className="col-xs-3">
