@@ -19970,7 +19970,7 @@ var RealityApp = React.createClass({
           React.createElement(
             'h3',
             null,
-            this.state.result
+            React.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.result } })
           )
         )
       ),
@@ -20044,7 +20044,7 @@ var SearchBox = React.createClass({
               React.createElement(
                 "div",
                 { style: searchBorder },
-                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. Reality::Entity.new('Canada').area" })
+                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. Entity('Ukraine').capital.coord.weather.sky" })
               )
             ),
             React.createElement(

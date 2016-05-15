@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'reality'
+require 'reality/iruby'
 
 include Reality::Methods
+include Reality::IRuby
 Reality.configure(:demo)
 # OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE # If you have problems with local SSL certificate
 

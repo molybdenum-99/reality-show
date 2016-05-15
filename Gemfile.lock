@@ -1,4 +1,20 @@
 GIT
+  remote: git://github.com/molybdenum-99/reality.git
+  revision: cc0ca9ee07c38bc77ba3840324631f58ecde9103
+  branch: iruby
+  specs:
+    reality (0.0.4)
+      geokit
+      hashie
+      infoboxer (>= 0.2.4)
+      open-weather
+      quandl
+      ruby-sun-times
+      time_boots
+      timezone (>= 0.99.0)
+      tzinfo
+
+GIT
   remote: git://github.com/sinatra/sinatra.git
   revision: 1e75f50aa54e75c12532c07c0ddc1c6d19a5e2b5
   specs:
@@ -64,16 +80,6 @@ GEM
       json
     rack-protection (1.5.3)
       rack
-    reality (0.0.4)
-      geokit
-      hashie
-      infoboxer (>= 0.2.4)
-      open-weather
-      quandl
-      ruby-sun-times
-      time_boots
-      timezone (>= 0.99.0)
-      tzinfo
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -98,7 +104,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   puma
-  reality
+  reality!
   sinatra!
 
 BUNDLED WITH
