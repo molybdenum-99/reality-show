@@ -32,17 +32,19 @@ var RealityApp = React.createClass({
 
   render: function() {
     return (
-      <div className="row">
-        <div className="col-sm-3"></div>
-        <div className="components col-sm-8">
-          <SearchBox onNewSearch={this.handleSearch} ref="searchBox"/>
-          <Loader loaded={this.state.loaded} color="#fff" left="40%" top="180%">
-            <h3><div dangerouslySetInnerHTML={{__html: this.state.result}} /></h3>
-          </Loader>
+        <div className="row">
+          <div className="col-sm-2"></div>
+          <div className="components col-sm-8">
+            <SearchBox onNewSearch={this.handleSearch} ref="searchBox"/>
+           <div className="text-center">
+             <Loader loaded={this.state.loaded} color="#fff" top="180%">
+               <h3><div dangerouslySetInnerHTML={{__html: this.state.result}} /></h3>
+             </Loader>
+           </div>
+          </div>
+          <div className="col-sm-2">
+          </div>
         </div>
-        <div className="col-sm-1"></div>
-      </div>
-
     );
   }
 });

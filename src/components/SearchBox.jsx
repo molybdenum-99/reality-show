@@ -45,12 +45,13 @@ var SearchBox = React.createClass({
         <div className="col-xs-12">
           <div className="row">
             <form onSubmit={this.handleSubmit} >
-              <div className="col-xs-9">
+              <div className="col-xs-1"></div>
+              <div className="col-xs-10">
                 <div style={searchBorder}>
                   <input style={inputStyle} ref="searchInput" placeholder="e.g. Entity('Ukraine').capital.coord.weather.sky"/>
                 </div>
               </div>
-              <div className="col-xs-3">
+              <div className="col-xs-1">
                 <button style={searchIconBorder} type="btn">
                   <i className="fa fa-search" style={searchIcon}></i>
                 </button>

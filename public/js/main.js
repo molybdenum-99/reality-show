@@ -19959,22 +19959,26 @@ var RealityApp = React.createClass({
     return React.createElement(
       'div',
       { className: 'row' },
-      React.createElement('div', { className: 'col-sm-3' }),
+      React.createElement('div', { className: 'col-sm-2' }),
       React.createElement(
         'div',
         { className: 'components col-sm-8' },
         React.createElement(SearchBox, { onNewSearch: this.handleSearch, ref: 'searchBox' }),
         React.createElement(
-          Loader,
-          { loaded: this.state.loaded, color: '#fff', left: '40%', top: '180%' },
+          'div',
+          { className: 'text-center' },
           React.createElement(
-            'h3',
-            null,
-            React.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.result } })
+            Loader,
+            { loaded: this.state.loaded, color: '#fff', top: '180%' },
+            React.createElement(
+              'h3',
+              null,
+              React.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.result } })
+            )
           )
         )
       ),
-      React.createElement('div', { className: 'col-sm-1' })
+      React.createElement('div', { className: 'col-sm-2' })
     );
   }
 });
@@ -20038,9 +20042,10 @@ var SearchBox = React.createClass({
           React.createElement(
             "form",
             { onSubmit: this.handleSubmit },
+            React.createElement("div", { className: "col-xs-1" }),
             React.createElement(
               "div",
-              { className: "col-xs-9" },
+              { className: "col-xs-10" },
               React.createElement(
                 "div",
                 { style: searchBorder },
@@ -20049,7 +20054,7 @@ var SearchBox = React.createClass({
             ),
             React.createElement(
               "div",
-              { className: "col-xs-3" },
+              { className: "col-xs-1" },
               React.createElement(
                 "button",
                 { style: searchIconBorder, type: "btn" },

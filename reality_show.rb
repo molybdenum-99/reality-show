@@ -13,9 +13,20 @@ end
 
 get '/query' do
   @result = begin
-    { result: (eval(params['query']) || 'blank').to_s }
+    result = eval(params['query']) || 'blank'
+    { result: result.respond_to?(:to_html) ? result.to_html : result.to_s }
   rescue =>e
     { result: e.message, error: e.message }
   end
   @result.to_json
+end
+
+module Reality
+  module IRuby
+    module Extensions
+      def html_reality_style
+        'border: 1px solid #B0C6D0; padding: 1px; cursor: pointer;'
+      end
+    end
+  end
 end
