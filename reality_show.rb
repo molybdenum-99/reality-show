@@ -12,8 +12,18 @@ get '/' do
 end
 
 get '/query' do
+  query(params['query'])
+end
+
+post '/bot-query' do
+  puts params
+  query(params['reply'])
+end
+
+
+def query(query)
   @result = begin
-    result = eval(params['query']) || 'blank'
+    result = eval(query) || 'blank'
     { result: result.respond_to?(:to_html) ? result.to_html : result.to_s }
   rescue =>e
     { result: e.message, error: e.message }
