@@ -4,3 +4,14 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+.external-links {
+    position: absolute;
+    right: 5%;
+    font-size: small;
+    text-decoration: underline;
+}
+
+a {
+    color: #ffffff;
+}
