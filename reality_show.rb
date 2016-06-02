@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'reality'
 require 'reality/iruby'
+require "rack-timeout"
+use Rack::Timeout
+Rack::Timeout.service_timeout = 30
+Rack::Timeout.wait_timeout = 30
 
 include Reality::Methods
 include Reality::IRuby

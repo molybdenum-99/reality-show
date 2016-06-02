@@ -80,6 +80,7 @@ GEM
       json
     rack-protection (1.5.3)
       rack
+    rack-timeout (0.3.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -104,6 +105,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   puma
+  rack-timeout
   reality!
   sinatra!
 
