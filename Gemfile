@@ -5,4 +5,7 @@ gem 'reality', github: 'molybdenum-99/reality', branch: 'iruby'
 gem 'puma'
 gem "rack-timeout"
 gem 'foreman'
+gem 'sidekiq'
+gem 'require_all'
+gem 'pusher'
 
