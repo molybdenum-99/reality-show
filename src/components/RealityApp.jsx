@@ -17,7 +17,7 @@ var RealityApp = React.createClass({
 
   componentDidMount: function(){
     if(document.location.hash.length > 0) {
-      query = document.location.hash.split('#')[1];
+      query = decodeURIComponent(document.location.hash.split('#')[1]);
       this.handleSearch(query);
       this.refs.searchBox.setInitialValue(query);
     }
@@ -25,7 +25,7 @@ var RealityApp = React.createClass({
   handleSearch: function(search){
     this.setState({loaded: false});
     HTTP.get('/query?query='+search).then(function(data){
-      document.location.hash = search;
+      document.location.hash = encodeURIComponent(search);
       this.setState({result: data.result, loaded: true});
     }.bind(this));
   },
