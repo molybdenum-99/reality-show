@@ -1,5 +1,9 @@
 require './boot'
 
+use Rack::Timeout
+Rack::Timeout.service_timeout = 30
+Rack::Timeout.wait_timeout = 30
+
 get '/' do
   erb :index
 end
@@ -20,16 +24,4 @@ post '/bot-query' do
   QueryJob.perform_async(query, options)
 
   { "message" => "Searching..." }.to_json
-end
-
-
-#patching
-module Reality
-  module IRuby
-    module Extensions
-      def html_reality_style
-        'border: 1px solid #B0C6D0; padding: 1px; cursor: pointer;'
-      end
-    end
-  end
 end
