@@ -10,6 +10,7 @@ class Searcher
 
   def query(query)
     @result = begin
+      p query
       result = eval(query) || 'blank'
       { result: result.respond_to?(:to_html) ? result.to_html : result.to_s }
     rescue SyntaxError, StandardError => e

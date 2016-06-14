@@ -41,10 +41,10 @@ var RealityApp = React.createClass({
     return JSON.parse(decoded);
   },
 
-  handleSearch: function(search) {
+  handleSearch: function(query) {
     this.setState({loaded: false});
-    HTTP.post('/search?query='+search).then(function(data){
-      document.location.hash = encodeURIComponent(search);
+    HTTP.post('/search', {query: query}).then(function(data){
+      document.location.hash = encodeURIComponent(query);
     }.bind(this));
   },
 

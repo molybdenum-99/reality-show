@@ -30786,10 +30786,10 @@ var RealityApp = React.createClass({
     return JSON.parse(decoded);
   },
 
-  handleSearch: function (search) {
+  handleSearch: function (query) {
     this.setState({ loaded: false });
-    HTTP.post('/search?query=' + search).then(function (data) {
-      document.location.hash = encodeURIComponent(search);
+    HTTP.post('/search', { query: query }).then(function (data) {
+      document.location.hash = encodeURIComponent(query);
     }.bind(this));
   },
 
@@ -30962,9 +30962,8 @@ var Fetch = require('whatwg-fetch');
 var baseUrl = '';
 
 var service = {
-  post: function (url) {
-    return fetch(baseUrl + url, { method: 'POST' }).then(function (response) {
-      //      debugger;
+  post: function (url, data) {
+    return fetch(baseUrl + url, { method: 'POST', body: JSON.stringify(data) }).then(function (response) {
       return response.json();
     });
   }
