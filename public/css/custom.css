@@ -14,4 +14,5 @@ button:focus {
 
 a {
     color: #ffffff;
+    cursor: pointer;
 }

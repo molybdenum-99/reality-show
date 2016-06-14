@@ -30775,7 +30775,7 @@ var RealityApp = React.createClass({
     }, this);
 
     if (document.location.hash.length > 0) {
-      query = decodeURIComponent(document.location.hash.split('#')[1]);
+      var query = decodeURIComponent(document.location.hash.split('#')[1]);
       this.handleSearch(query);
       this.refs.searchBox.setInitialValue(query);
     }
@@ -30788,9 +30788,15 @@ var RealityApp = React.createClass({
 
   handleSearch: function (search) {
     this.setState({ loaded: false });
-    HTTP.post('/query?query=' + search).then(function (data) {
+    HTTP.post('/search?query=' + search).then(function (data) {
       document.location.hash = encodeURIComponent(search);
     }.bind(this));
+  },
+
+  searchExample: function (e) {
+    var query = e.target.innerHTML;
+    this.handleSearch(query);
+    this.refs.searchBox.setInitialValue(query);
   },
 
   render: function () {
@@ -30807,11 +30813,47 @@ var RealityApp = React.createClass({
           { className: 'text-center' },
           React.createElement(
             Loader,
-            { loaded: this.state.loaded, color: '#fff', top: '180%' },
+            { loaded: this.state.loaded, color: '#fff' },
             React.createElement(
               'h3',
               null,
               React.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.result } })
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h3',
+            null,
+            'Try examples:'
+          ),
+          React.createElement(
+            'h4',
+            null,
+            React.createElement(
+              'a',
+              { onClick: this.searchExample },
+              'Entity(\'Toronto\').coord.distance_to(Entity(\'New York\'))'
+            )
+          ),
+          React.createElement(
+            'h4',
+            null,
+            React.createElement(
+              'a',
+              { onClick: this.searchExample },
+              'Entity(\'UK\').capital.coord.weather'
+            )
+          ),
+          React.createElement(
+            'h4',
+            null,
+            React.createElement(
+              'a',
+              { onClick: this.searchExample },
+              'Entity(\'Japan\').economy.inflation'
             )
           )
         )
@@ -30887,7 +30929,7 @@ var SearchBox = React.createClass({
               React.createElement(
                 "div",
                 { style: searchBorder },
-                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. Entity('Ukraine').capital.coord.weather.sky" })
+                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. Entity('UK').capital.coord.weather.sky" })
               )
             ),
             React.createElement(

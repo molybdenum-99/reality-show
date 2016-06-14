@@ -12,7 +12,7 @@ class Searcher
     @result = begin
       result = eval(query) || 'blank'
       { result: result.respond_to?(:to_html) ? result.to_html : result.to_s }
-    rescue =>e
+    rescue SyntaxError, StandardError => e
       { result: e.message, error: e.message }
     end
     @result

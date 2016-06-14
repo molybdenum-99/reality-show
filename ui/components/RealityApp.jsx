@@ -30,7 +30,7 @@ var RealityApp = React.createClass({
     }, this);
 
     if(document.location.hash.length > 0) {
-      query = decodeURIComponent(document.location.hash.split('#')[1]);
+      var query = decodeURIComponent(document.location.hash.split('#')[1]);
       this.handleSearch(query);
       this.refs.searchBox.setInitialValue(query);
     }
@@ -43,9 +43,15 @@ var RealityApp = React.createClass({
 
   handleSearch: function(search) {
     this.setState({loaded: false});
-    HTTP.post('/query?query='+search).then(function(data){
+    HTTP.post('/search?query='+search).then(function(data){
       document.location.hash = encodeURIComponent(search);
     }.bind(this));
+  },
+
+  searchExample: function(e) {
+    var query = e.target.innerHTML;
+    this.handleSearch(query);
+    this.refs.searchBox.setInitialValue(query);
   },
 
   render: function() {
@@ -55,9 +61,27 @@ var RealityApp = React.createClass({
           <div className="components col-sm-8">
             <SearchBox onNewSearch={this.handleSearch} ref="searchBox"/>
            <div className="text-center">
-             <Loader loaded={this.state.loaded} color="#fff" top="180%">
+             <Loader loaded={this.state.loaded} color="#fff" >
                <h3><div dangerouslySetInnerHTML={{__html: this.state.result}} /></h3>
              </Loader>
+           </div>
+           <div>
+             <h3>Try examples:</h3>
+             <h4>
+               <a onClick={this.searchExample}>
+                 Entity('Toronto').coord.distance_to(Entity('New York'))
+               </a>
+             </h4>
+             <h4>
+               <a onClick={this.searchExample}>
+                 Entity('UK').capital.coord.weather
+               </a>
+             </h4>
+             <h4>
+               <a onClick={this.searchExample}>
+                 Entity('Japan').economy.inflation
+               </a>
+             </h4>
            </div>
           </div>
           <div className="col-sm-2">

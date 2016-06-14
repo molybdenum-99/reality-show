@@ -8,7 +8,7 @@ get '/' do
   erb :index
 end
 
-post '/query' do
+post '/search' do
   query, options = if params['auth_token']
     Extractors::Hipchat.perform(params, request)
   elsif params['reply']
@@ -17,7 +17,10 @@ post '/query' do
     Extractors::Web.perform(params, request)
   end
 
-  QueryJob.perform_async(query, options)
-
-  { "message" => "Searching..." }.to_json
+  if params['sync']
+    Searcher.new.get(query).to_json
+  else
+    QueryJob.perform_async(query, options)
+    { "message" => "Searching..." }.to_json
+  end
 end
