@@ -24006,7 +24006,7 @@ var RealityApp = React.createClass({
     }, this);
 
     if (document.location.hash.length > 0) {
-      query = document.location.hash.split('#')[1];
+      query = decodeURIComponent(document.location.hash.split('#')[1]);
       this.handleSearch(query);
       this.refs.searchBox.setInitialValue(query);
     }
@@ -24015,7 +24015,7 @@ var RealityApp = React.createClass({
   handleSearch: function (search) {
     this.setState({ loaded: false });
     HTTP.post('/bot-query?query=' + search).then(function (data) {
-      document.location.hash = search;
+      document.location.hash = encodeURIComponent(search);
     }.bind(this));
   },
 

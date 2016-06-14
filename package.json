@@ -1,10 +1,10 @@
 {
-  "name": "react-reality-app",
+  "name": "reality-show",
   "version": "0.0.2",
   "description": "Reality Web console",
   "main": "index.js",
   "scripts": {
-    "start": "watchify src/main.jsx -v -t [ babelify --presets [react] ] -o public/js/main.js"
+    "start": "watchify ui/main.jsx -v -t [ babelify --presets [react] ] -o public/js/main.js"
   },
   "author": "Sergii Mostovyi",
   "license": "MIT",
