@@ -48,7 +48,7 @@ var RealityApp = React.createClass({
     }.bind(this));
   },
 
-  searchExample: function(e) {
+  searchByExample: function(e) {
     var query = e.target.innerHTML;
     this.handleSearch(query);
     this.refs.searchBox.setInitialValue(query);
@@ -68,17 +68,17 @@ var RealityApp = React.createClass({
            <div>
              <h3>Try examples:</h3>
              <h4>
-               <a onClick={this.searchExample}>
+               <a onClick={this.searchByExample}>
                  Entity('Toronto').coord.distance_to(Entity('New York'))
                </a>
              </h4>
              <h4>
-               <a onClick={this.searchExample}>
+               <a onClick={this.searchByExample}>
                  Entity('UK').capital.coord.weather
                </a>
              </h4>
              <h4>
-               <a onClick={this.searchExample}>
+               <a onClick={this.searchByExample}>
                  Entity('Japan').economy.inflation
                </a>
              </h4>

@@ -30793,7 +30793,7 @@ var RealityApp = React.createClass({
     }.bind(this));
   },
 
-  searchExample: function (e) {
+  searchByExample: function (e) {
     var query = e.target.innerHTML;
     this.handleSearch(query);
     this.refs.searchBox.setInitialValue(query);
@@ -30834,7 +30834,7 @@ var RealityApp = React.createClass({
             null,
             React.createElement(
               'a',
-              { onClick: this.searchExample },
+              { onClick: this.searchByExample },
               'Entity(\'Toronto\').coord.distance_to(Entity(\'New York\'))'
             )
           ),
@@ -30843,7 +30843,7 @@ var RealityApp = React.createClass({
             null,
             React.createElement(
               'a',
-              { onClick: this.searchExample },
+              { onClick: this.searchByExample },
               'Entity(\'UK\').capital.coord.weather'
             )
           ),
@@ -30852,7 +30852,7 @@ var RealityApp = React.createClass({
             null,
             React.createElement(
               'a',
-              { onClick: this.searchExample },
+              { onClick: this.searchByExample },
               'Entity(\'Japan\').economy.inflation'
             )
           )
