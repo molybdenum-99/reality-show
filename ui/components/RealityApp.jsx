@@ -5,6 +5,8 @@ var HTTP = require('../services/httpserver');
 var SearchBox = require('./SearchBox.jsx');
 var Loader = require('react-loader');
 var Pusher = require('pusher-js');
+var pako = require('pako');
+var base64 = require('base-64')
 
 var RealityApp = React.createClass({
   getInitialState: function(){
@@ -23,7 +25,8 @@ var RealityApp = React.createClass({
 
   componentDidMount: function(){
     this.channel.bind('response', function(response){
-      this.setState({result: response.result, loaded: true});
+      var data = this.decodeResponse(response);
+      this.setState({result: data.result, loaded: true});
     }, this);
 
     if(document.location.hash.length > 0) {
@@ -33,9 +36,14 @@ var RealityApp = React.createClass({
     }
   },
 
+  decodeResponse: function(response) {
+    var decoded = pako.inflate(base64.decode(response), { to: 'string' });
+    return JSON.parse(decoded);
+  },
+
   handleSearch: function(search) {
     this.setState({loaded: false});
-    HTTP.post('/bot-query?query='+search).then(function(data){
+    HTTP.post('/query?query='+search).then(function(data){
       document.location.hash = encodeURIComponent(search);
     }.bind(this));
   },

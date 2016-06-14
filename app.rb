@@ -8,11 +8,7 @@ get '/' do
   erb :index
 end
 
-get '/query' do
-  Searcher.new.get(params['query']).to_json
-end
-
-post '/bot-query' do
+post '/query' do
   query, options = if params['auth_token']
     Extractors::Hipchat.perform(params, request)
   elsif params['reply']
