@@ -21,6 +21,7 @@ Reality Show supports next platforms:
 
 ### Hipchat
 Add integration using "Build your own" wizard.
+
 POST URL: http://reality-show.molybdenum.io/search?auth_token=room_token
 
 ### Motion AI

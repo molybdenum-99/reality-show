@@ -19,7 +19,7 @@ var RealityApp = React.createClass({
   },
 
   componentWillMount: function() {
-    this.pusher = new Pusher('7b59d48fb0c2aff9dfb7');
+    this.pusher = new Pusher(window.pusher_key);
     this.channel = this.pusher.subscribe('query');
   },
 
