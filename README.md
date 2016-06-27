@@ -29,8 +29,8 @@ More information about Reality commands is on Reality page https://github.com/mo
 Reality Show supports next platforms:
 
 #### Hipchat
-![](https://www.dropbox.com/s/p9ji4w7o4fde3jr/Screenshot%202016-06-27%2017.32.59.png?dl=0)
-Add integration using "Build your own" wizard.
+![](https://www.dropbox.com/s/p9ji4w7o4fde3jr/Screenshot%202016-06-27%2017.32.59.png?raw=1)
+Add it as an Integration using "Build your own" wizard.
 
 POST URL: http://reality-show.molybdenum.io/search?auth_token=room_token
 
