@@ -20,7 +20,8 @@ var RealityApp = React.createClass({
 
   componentWillMount: function() {
     this.pusher = new Pusher(window.pusher_key);
-    this.channel = this.pusher.subscribe('query');
+    this.channel_name = 'user'+Math.random();
+    this.channel = this.pusher.subscribe(this.channel_name);
   },
 
   componentDidMount: function(){
@@ -43,7 +44,7 @@ var RealityApp = React.createClass({
 
   handleSearch: function(query) {
     this.setState({loaded: false});
-    HTTP.post('/search', {query: query}).then(function(data){
+    HTTP.post('/search', {query: query, channel: this.channel_name}).then(function(data){
       document.location.hash = encodeURIComponent(query);
     }.bind(this));
   },
@@ -69,17 +70,17 @@ var RealityApp = React.createClass({
              <h3>Try examples:</h3>
              <h4>
                <a onClick={this.searchByExample}>
-                 Entity('Toronto').coord.distance_to(Entity('New York'))
+                 E('Toronto').coord.distance_to(E('New York'))
                </a>
              </h4>
              <h4>
                <a onClick={this.searchByExample}>
-                 Entity('UK').capital.coord.weather
+                 E('UK').capital.coord.weather
                </a>
              </h4>
              <h4>
                <a onClick={this.searchByExample}>
-                 Entity('Japan').economy.inflation
+                 E('Japan').economy.inflation
                </a>
              </h4>
            </div>

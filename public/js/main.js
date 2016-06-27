@@ -30765,7 +30765,8 @@ var RealityApp = React.createClass({
 
   componentWillMount: function () {
     this.pusher = new Pusher(window.pusher_key);
-    this.channel = this.pusher.subscribe('query');
+    this.channel_name = 'user' + Math.random();
+    this.channel = this.pusher.subscribe(this.channel_name);
   },
 
   componentDidMount: function () {
@@ -30788,7 +30789,7 @@ var RealityApp = React.createClass({
 
   handleSearch: function (query) {
     this.setState({ loaded: false });
-    HTTP.post('/search', { query: query }).then(function (data) {
+    HTTP.post('/search', { query: query, channel: this.channel_name }).then(function (data) {
       document.location.hash = encodeURIComponent(query);
     }.bind(this));
   },
@@ -30835,7 +30836,7 @@ var RealityApp = React.createClass({
             React.createElement(
               'a',
               { onClick: this.searchByExample },
-              'Entity(\'Toronto\').coord.distance_to(Entity(\'New York\'))'
+              'E(\'Toronto\').coord.distance_to(E(\'New York\'))'
             )
           ),
           React.createElement(
@@ -30844,7 +30845,7 @@ var RealityApp = React.createClass({
             React.createElement(
               'a',
               { onClick: this.searchByExample },
-              'Entity(\'UK\').capital.coord.weather'
+              'E(\'UK\').capital.coord.weather'
             )
           ),
           React.createElement(
@@ -30853,7 +30854,7 @@ var RealityApp = React.createClass({
             React.createElement(
               'a',
               { onClick: this.searchByExample },
-              'Entity(\'Japan\').economy.inflation'
+              'E(\'Japan\').economy.inflation'
             )
           )
         )
@@ -30929,7 +30930,7 @@ var SearchBox = React.createClass({
               React.createElement(
                 "div",
                 { style: searchBorder },
-                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. Entity('UK').capital.coord.weather.sky" })
+                React.createElement("input", { style: inputStyle, ref: "searchInput", placeholder: "e.g. E('UK').capital.coord.weather.sky" })
               )
             ),
             React.createElement(
