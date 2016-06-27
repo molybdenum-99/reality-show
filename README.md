@@ -9,12 +9,21 @@ http://reality-show.molybdenum.io
 
 
 ## Usage
-Reality::Methods is included so you can use shortcuts, e.g.
+Reality Show is generally a ruby console and an API for running any ruby code.
+`Reality::Methods` is included so you can use shortcuts, e.g.
 
 ```ruby
 Entity('Canada').area
+E('Canada').area
 ```
-More information is on Reality page https://github.com/molybdenum-99/reality
+
+Demo configuration keys for non-wiki services are also included.  
+ 
+```ruby
+E('London').coord.weather
+``` 
+
+More information about Reality commands is on Reality page https://github.com/molybdenum-99/reality
 
 ## Bots
 Reality Show supports next platforms:

@@ -48,7 +48,7 @@ var SearchBox = React.createClass({
               <div className="col-xs-1"></div>
               <div className="col-xs-10">
                 <div style={searchBorder}>
-                  <input style={inputStyle} ref="searchInput" placeholder="e.g. Entity('UK').capital.coord.weather.sky"/>
+                  <input style={inputStyle} ref="searchInput" placeholder="e.g. E('UK').capital.coord.weather.sky"/>
                 </div>
               </div>
               <div className="col-xs-1">

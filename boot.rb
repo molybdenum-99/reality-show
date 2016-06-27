@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'reality'
+require 'reality/shortcuts'
 require 'reality/iruby'
 require 'rack-timeout'
 require 'sidekiq'
