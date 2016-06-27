@@ -1,7 +1,7 @@
 Reality Show
 =========
 
-Reality Show is a server for bots and a web console with Reality library included so you can quickly experiment with Reality.
+Reality Show is a server for bots and a web console with Reality library included so you can quickly get information right from a chat and experiment with Reality.
 
 ## URL
 
