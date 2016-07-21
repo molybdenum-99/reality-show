@@ -37,9 +37,3 @@ module Reality
     end
   end
 end
-
-class NilClass
-  def to_s
-    'blank'
-  end
-end
