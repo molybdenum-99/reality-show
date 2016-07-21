@@ -10,8 +10,8 @@ class Searcher
 
   def query(query)
     @result = begin
-      p query
-      result = eval(query) || 'blank'
+      p "query: '#{query}'"
+      result = eval(query)
       { result: format_response(result) }
     rescue SyntaxError, StandardError => e
       { result: e.message, error: e.message }
@@ -20,14 +20,18 @@ class Searcher
   end
 
   def format_response(result)
-    if result.respond_to?(:to_html)
-      result.to_html
+    if result.is_a?(Array)
+      result.map { |e| format_item(e) }
     else
-      if result.is_a?(Array)
-        result.map {|e| e.respond_to?(:to_html) ? e.to_html : e.to_s }
-      else
-        result.to_s
-      end
+      format_item(result)
+    end
+  end
+
+  def format_item(item)
+    if item.respond_to?(:to_html)
+      item.to_html
+    else
+      item.nil? ? 'blank' : item.to_s
     end
   end
 end

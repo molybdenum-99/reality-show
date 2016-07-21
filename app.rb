@@ -1,8 +1,9 @@
 require './boot'
 
+use Airbrake::Rack::Middleware
 use Rack::Timeout
-Rack::Timeout.service_timeout = 30
-Rack::Timeout.wait_timeout = 30
+Rack::Timeout.service_timeout = 5
+Rack::Timeout.wait_timeout = 5
 
 get '/' do
   erb :index
