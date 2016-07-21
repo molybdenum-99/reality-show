@@ -33,7 +33,9 @@ Reality Show supports next platforms:
 
 Add it as an Integration using "Build your own" wizard. It takes 1 minute.
 
-POST URL: http://reality-show.molybdenum.io/search?auth_token=room_token
+POST URL: http://reality-show.molybdenum.io//search?auth_token=room_token
+
+(Put a room token to query string, keep 2 slashes in path)
 
 #### Motion AI
 POST URL: http://reality-show.molybdenum.io/search?sync=1
