@@ -9,4 +9,5 @@ gem 'sidekiq'
 gem 'require_all'
 gem 'pusher'
 gem 'dotenv'
+gem 'sinatra-logentries'
 

@@ -61,6 +61,7 @@ GEM
       procme
       terminal-table
     json (1.8.3)
+    le (2.7.2)
     mediawiktory (0.0.2)
       addressable
       faraday
@@ -102,6 +103,8 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sinatra-logentries (0.0.2)
+      le (>= 2.1.6)
     terminal-table (1.6.0)
     thor (0.19.1)
     thread_safe (0.3.5)
@@ -128,6 +131,7 @@ DEPENDENCIES
   require_all
   sidekiq
   sinatra!
+  sinatra-logentries
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
