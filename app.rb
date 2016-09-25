@@ -21,7 +21,7 @@ post '/search' do
   if params['sync']
     Searcher.new.get(query).to_json
   else
-    QueryJob.perform_async(query, options)
+    Resque.enqueue(QueryJob, query, options)
     { "message" => "Searching..." }.to_json
   end
 end

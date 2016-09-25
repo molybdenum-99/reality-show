@@ -1,10 +1,9 @@
 require './boot'
 
 class QueryJob
-  include Sidekiq::Worker
-  sidekiq_options :retry => false
+  @queue = :default
 
-  def perform(query, options)
+  def self.perform(query, options)
     data = Searcher.new.get(query)
     Responder.respond(data, options)
   end

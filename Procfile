@@ -1,2 +1,2 @@
-web: bundle exec puma -t 5:10 -p $PORT
-worker: bundle exec sidekiq -r ./jobs/query_job.rb -c 10
+web: bundle exec puma -t 2:20 -p $PORT
+resque: env TERM_CHILD=1 COUNT=20 QUEUE=default bundle exec rake resque:workers
