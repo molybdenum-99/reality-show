@@ -43,4 +43,4 @@ POST URL: http://reality-show.molybdenum.io/search?sync=1
 ## Internals:
 
 React.js + Sinatra + Puma + Resque
-Console is pretty secure. When a Resque worker reserves a job it immediately forks a child process. The child processes the job and then exits
+Console is pretty secure. When a Resque worker reserves a job it immediately forks a child process. The child processes the job and then exits.
